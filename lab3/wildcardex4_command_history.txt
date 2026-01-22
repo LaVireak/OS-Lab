@@ -1,0 +1,207 @@
+    1  pip install numpy
+    2  sudo apt install python3-numpy
+    3  sudo apt upgrade
+    4  sudo apt install python3-pip
+    5  pip3 install numpy
+    6  ls
+    7  git config --global user.email "lavireak9@gmail.com.com"
+    8  git config --global user.name "LaVireak"
+    9  ls
+   10  mkdir lab1
+   11  ls
+   12  cd lab1
+   13  touch LabFiles/doc1.txt LabFiles/doc2.txt
+   14  touch doc1.txt
+   15  touch doc2.txt
+   16  ls
+   17  cd ..
+   18  mkdir -p ~/OS-Lab
+   19  mv ~/lab1 ~/OS-Lab/
+   20  # Go into the lab1 folder
+   21  cd ~/OS-Lab/lab1
+   22  # Create the LabFiles directory (from Task 3a)
+   23  mkdir LabFiles
+   24  # Move the files you already made (doc1.txt and doc2.txt) into it
+   25  mv doc1.txt doc2.txt LabFiles/
+   26  # Verify the result
+   27  ls LabFiles
+   28  tree
+   29  cd ..
+   30  mv doc1.txt doc2.txt lab1/
+   31  cd LabFiles
+   32  cd lab1
+   33  cd LabFiles
+   34  mv doc1.txt doc2.txt lab1/
+   35  ls
+   36  tree
+   37  cd ..
+   38  tree
+   39  cd ..
+   40  tree 
+   41  # 1. Enter the lab1 directory
+   42  cd ~/OS-Lab/lab1
+   43  # 2. Move the files from LabFiles out into the lab1 folder
+   44  mv LabFiles/doc1.txt LabFiles/doc2.txt .
+   45  # 3. Remove the now-empty LabFiles directory
+   46  rmdir LabFiles
+   47  # 4. Verify your new clean structure
+   48  tree
+   49  cd ..
+   50  tree
+   51  # 1. Ensure you are in the OS-Lab directory
+   52  cd ~/OS-Lab
+   53  # 2. Create the lab2 folder and its subdirectories
+   54  mkdir -p lab2/ex1/etc/network
+   55  mkdir -p lab2/ex1/etc/systemd/system
+   56  mkdir -p lab2/ex1/etc/systemd/user
+   57  mkdir -p lab2/ex1/etc/udev/rules.d
+   58  mkdir -p lab2/ex1/home/lost+found
+   59  mkdir -p lab2/ex1/home/user/Documents
+   60  mkdir -p lab2/ex2
+   61  # 3. Create the required files
+   62  touch lab2/ex1/etc/network/interfaces
+   63  touch lab2/ex1/etc/systemd/resolved.conf
+   64  touch lab2/ex1/etc/systemd/system.conf
+   65  touch lab2/ex1/etc/systemd/user.conf
+   66  touch lab2/ex1/etc/udev/udev.conf
+   67  touch lab2/ex1/ex1_command_history.txt
+   68  touch lab2/ex1/result1.txt
+   69  touch lab2/ex2/ex2_command_history.txt
+   70  # 4. Verify the final structure
+   71  tree lab2
+   72  ls
+   73  tree
+   74  cd ~/OS-Lab
+   75  mkdir lab3 && cd lab3
+   76  mkdir CopyingFolder
+   77  touch CopyingFolder/copied.txt
+   78  # Create a local 'Documents' folder for this exercise
+   79  mkdir Documents
+   80  cp CopyingFolder/copied.txt Documents/
+   81  cd Documents && touch one.txt two.txt three.txt four.txt five.txt && cd ..
+   82  # Copy text files to CopyingFolder
+   83  cp Documents/*.txt CopyingFolder/
+   84  # Create a 'Desktop' folder and copy the folder there
+   85  mkdir Desktop
+   86  cp -r CopyingFolder Desktop/
+   87  # Create new document files and rename to French
+   88  cd Documents
+   89  touch one_document.txt two_document.txt three_document.txt four_document.txt five_document.txt
+   90  mv one_document.txt "document_un.txt"
+   91  mv two_document.txt "document_deux.txt"
+   92  mv three_document.txt "document_trois.txt"
+   93  mv four_document.txt "document_quatre.txt"
+   94  mv five_document.txt "document_cinque.txt"
+   95  cd ..
+   96  # Organize into MoveFolder and FrenchFolder
+   97  mkdir MoveFolder
+   98  mv Documents/document_*.txt MoveFolder/
+   99  mkdir Desktop/FrenchFolder
+  100  # Use wildcard to move all files at once
+  101  mv MoveFolder/* Desktop/FrenchFolder/
+  102  # Record structure and delete files
+  103  tree > tree_structure_before_remove.txt
+  104  rm Desktop/FrenchFolder/document_deux.txt
+  105  rm Desktop/FrenchFolder/*.txt
+  106  tree > tree_structure_after_remove.txt
+  107  tree
+  108  mkdir wildcard_lab && cd wildcard_lab
+  109  touch a.txt b.txt ab.txt abc.txt xyz.log data.csv
+  110  # List pattern matches
+  111  ls *.txt      # All .txt files [cite: 144]
+  112  ls ?.txt      # Files with a single character before .txt [cite: 142]
+  113  cd ..
+  114  mkdir backup
+  115  cp wildcard_lab/*.txt backup/
+  116  cp wildcard_lab/???.??? backup/  # Copies files with exactly 3 characters in name (like abc.txt)
+  117  # Use braces for multiple files
+  118  touch file{1,2,3,4,5}.txt [cite: 147]
+  119  # Use square brackets for ranges
+  120  ls [1-3]file.txt [cite: 149]
+  121  # Use braces for multiple files
+  122  touch file{1,2,3,4,5}.txt [cite: 147]
+  123  # Use square brackets for ranges
+  124  ls [1-3]file.txt [cite: 149]
+  125  # 1. Setup wildcard folder
+  126  mkdir wildcard_lab && cd wildcard_lab [cite: 244]
+  127  touch a.txt b.txt ab.txt abc.txt xyz.log data.csv [cite: 245, 246, 247, 248, 249, 250, 251]
+  128  # 2. Test Wildcards (Take screenshots of these results)
+  129  ls *.txt [cite: 144, 253]
+  130  ls *.log [cite: 254]
+  131  ls ?.txt [cite: 141, 151, 255]
+  132  # 3. Backup with Wildcards
+  133  cd ..
+  134  mkdir backup [cite: 257]
+  135  cp wildcard_lab/*.txt backup/ [cite: 259]
+  136  cp wildcard_lab/???.txt backup/ [cite: 260]
+  137  # 4. Advanced Wildcards (Braces and Brackets)
+  138  touch file{1,2,3,4,5}.txt [cite: 146, 147, 270]
+  139  touch {1,2,3}file.txt [cite: 271]
+  140  # Test bracket matching (Matches 1file.txt, 2file.txt, or 3file.txt)
+  141  ls [1-3]file.txt [cite: 148, 149, 151]
+  142  # 1. Enter the directory (It already exists, so we just cd)
+  143  cd ~/OS-Lab/lab3/wildcard_lab
+  144  # 2. List Files Using Wildcards (Take your screenshots here)
+  145  ls *.txt
+  146  ls *.log
+  147  ls ?.txt
+  148  # 3. Create the backup directory and copy files
+  149  cd ..
+  150  mkdir -p backup
+  151  cp wildcard_lab/*.txt backup/
+  152  cp wildcard_lab/???.txt backup/
+  153  # 4. Create Advanced Wildcard files
+  154  touch file{1,2,3,4,5}.txt
+  155  touch {1,2,3}file.txt
+  156  # 5. Test bracket matching (This should now show 1file.txt 2file.txt 3file.txt)
+  157  ls [1-3]file.txt
+  158  # 1. Delete all files in the current directory with a single character name
+  159  # (This will remove a.txt and b.txt)
+  160  rm ?.txt
+  161  # 2. Delete all files in the backup directory
+  162  rm backup/*
+  163  # 3. Verify they are gone
+  164  ls
+  165  ls backup
+  166  tree
+  167  # 1. Create the logs directory in your lab3 folder
+  168  cd ~/OS-Lab/lab3
+  169  mkdir -p logs && cd logs [cite: 276]
+  170  # 2. Create the specific log files for January 2023
+  171  touch log20230101.txt log20230102.txt log20230103.txt log20230104.txt log20230105.txt [cite: 277, 278, 279, 280, 281, 282]
+  172  # 3. List only files from January 2023 (Take a screenshot)
+  173  ls log202301*.txt [cite: 283]
+  174  # 4. List files ending in an odd number (1, 3, or 5) (Take a screenshot)
+  175  ls log2023010[135].txt [cite: 286]
+  176  # 5. Record command history for this exercise
+  177  history > ~/OS-Lab/lab3/wildcardex3_command_history.txt [cite: 287]
+  178  # 1. Create the logs directory
+  179  cd ~/OS-Lab/lab3
+  180  mkdir -p logs
+  181  cd logs
+  182  # 2. Create the log files
+  183  touch log20230101.txt log20230102.txt log20230103.txt log20230104.txt log20230105.txt
+  184  # 3. List only files from January 2023 (Take your screenshot here)
+  185  ls log202301*.txt
+  186  # 4. List files ending in an odd number (Take your screenshot here)
+  187  ls log2023010[135].txt
+  188  # 5. Record command history for this exercise
+  189  history > ~/OS-Lab/lab3/wildcardex3_command_history.txt
+  190  tree
+  191  # 1. Create the link_lab directory
+  192  cd ~/OS-Lab/lab3
+  193  mkdir -p link_lab
+  194  cd link_lab
+  195  # 2. Create the original file
+  196  echo "Hello from the original file!" > original.txt
+  197  # 3. Create a Symbolic Link (shortcut)
+  198  ln -s original.txt symlink.txt
+  199  # 4. Create a Hard Link (direct reference)
+  200  ln original.txt hardlink.txt
+  201  # 5. Test the links (Take a screenshot of the output)
+  202  cat symlink.txt
+  203  cat hardlink.txt
+  204  # 6. Create a "Broken Link" (Points to nothing)
+  205  ln -s nonexistent_file.txt broken_link.txt
+  206  # 7. Record command history
+  207  history > ~/OS-Lab/lab3/wildcardex4_command_history.txt
